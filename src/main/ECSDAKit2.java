@@ -1,4 +1,5 @@
 package main;
+
 import org.bouncycastle.asn1.ASN1InputStream;
 import org.bouncycastle.asn1.ASN1Integer;
 import org.bouncycastle.asn1.ASN1Primitive;
@@ -137,11 +138,11 @@ public class ECSDAKit2 {
     }
 
     public static void main(String[] args) throws UnsupportedEncodingException {
-        ECSDAKit2 kit = new ECSDAKit2("7cb0b71902d58eab5c2d437fea05b92d41f6bd98f70bf4a522aef55baf7bae40");
+        ECSDAKit2 kit = new ECSDAKit2(" secretKey");
         String data = "POST|/api/payInInfo|1730207516573|mchNo=M1727957655&payOrderId=test_payment_id";
         String s = kit.sign(data.getBytes(StandardCharsets.UTF_8));
         System.out.println(s);
-        String pub = "020ed3f061203959f83d96a4428fcd4b168e70c76aff8b3db163bde81d4dc4039b";
+        String pub = "publicKey";
         boolean b = verifyEcdsaSignature(data, s, pub);
         System.out.println(b);
         System.out.println(Arrays.toString(generateKeyPair()));
