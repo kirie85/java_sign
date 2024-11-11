@@ -138,7 +138,7 @@ public class ECSDAKit2 {
     }
 
     public static void main(String[] args) throws UnsupportedEncodingException {
-        ECSDAKit2 kit = new ECSDAKit2(" secretKey");
+        ECSDAKit2 kit = new ECSDAKit2("secretKey");
         String data = "POST|/api/payInInfo|1730207516573|mchNo=M1727957655&payOrderId=test_payment_id";
         String s = kit.sign(data.getBytes(StandardCharsets.UTF_8));
         System.out.println(s);
